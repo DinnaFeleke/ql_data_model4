@@ -1,0 +1,3049 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/DINNALAPTOP\\DINNA2019;QLDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "DINNALAPTOP\\DINNA2019",
+            "database": "QLDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "kind": "SQL",
+          "path": "dinnalaptop\\dinna2019;QLDW",
+          "Username": "DINNALAPTOP\\12404",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "ApprovalJunk",
+        "columns": [
+          {
+            "name": "DimApprovalSSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DimApprovalSSkey"
+          },
+          {
+            "name": "UnderwriterRiskAssessID",
+            "dataType": "string",
+            "sourceColumn": "UnderwriterRiskAssessID"
+          },
+          {
+            "name": "UnderwriterRiskAssess",
+            "dataType": "string",
+            "sourceColumn": "UnderwriterRiskAssess"
+          },
+          {
+            "name": "UnderwriterRiskAssessType",
+            "dataType": "string",
+            "sourceColumn": "UnderwriterRiskAssessType"
+          },
+          {
+            "name": "QAStatusID",
+            "dataType": "string",
+            "sourceColumn": "QAStatusID"
+          },
+          {
+            "name": "QAStatus",
+            "dataType": "string",
+            "sourceColumn": "QAStatus"
+          },
+          {
+            "name": "QAStatusType",
+            "dataType": "string",
+            "sourceColumn": "QAStatusType"
+          },
+          {
+            "name": "ApprovalStatusID",
+            "dataType": "string",
+            "sourceColumn": "ApprovalStatusID"
+          },
+          {
+            "name": "ApprovalStatus",
+            "dataType": "string",
+            "sourceColumn": "ApprovalStatus"
+          },
+          {
+            "name": "ApprovalStatusType",
+            "dataType": "string",
+            "sourceColumn": "ApprovalStatusType"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimApprovalJunk = Source{[Schema=\"dbo\",Item=\"dimApprovalJunk\"]}[Data]",
+                "in",
+                "    dbo_dimApprovalJunk"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Borrowers",
+        "columns": [
+          {
+            "name": "dimBorrowerSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimBorrowerSkey"
+          },
+          {
+            "name": "BorrowerNkey",
+            "dataType": "string",
+            "sourceColumn": "BorrowerNkey"
+          },
+          {
+            "name": "BorrowerFullName",
+            "dataType": "string",
+            "sourceColumn": "BorrowerFullName"
+          },
+          {
+            "name": "BorrowerFirstName",
+            "dataType": "string",
+            "sourceColumn": "BorrowerFirstName"
+          },
+          {
+            "name": "BorrowerLastName",
+            "dataType": "string",
+            "sourceColumn": "BorrowerLastName"
+          },
+          {
+            "name": "BorrowerBirthDate",
+            "dataType": "dateTime",
+            "sourceColumn": "BorrowerBirthDate"
+          },
+          {
+            "name": "BorrowerGender",
+            "dataType": "string",
+            "sourceColumn": "BorrowerGender"
+          },
+          {
+            "name": "BorrowerEmailAddress",
+            "dataType": "string",
+            "sourceColumn": "BorrowerEmailAddress"
+          },
+          {
+            "name": "BorrowerNoYearsOnJob",
+            "dataType": "int64",
+            "sourceColumn": "BorrowerNoYearsOnJob"
+          },
+          {
+            "name": "IsBorrowerSelfEmployeedFlag",
+            "dataType": "boolean",
+            "sourceColumn": "IsBorrowerSelfEmployeedFlag"
+          },
+          {
+            "name": "BorrowerTotalIncome",
+            "dataType": "double",
+            "sourceColumn": "BorrowerTotalIncome"
+          },
+          {
+            "name": "FinallCreditScore",
+            "dataType": "int64",
+            "sourceColumn": "FinallCreditScore"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimBorrowers = Source{[Schema=\"dbo\",Item=\"dimBorrowers\"]}[Data]",
+                "in",
+                "    dbo_dimBorrowers"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1"
+          }
+        ]
+      },
+      {
+        "name": "channel",
+        "columns": [
+          {
+            "name": "dimChannelSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimChannelSkey"
+          },
+          {
+            "name": "ChannelNkey",
+            "dataType": "string",
+            "sourceColumn": "ChannelNkey"
+          },
+          {
+            "name": "Channel",
+            "dataType": "string",
+            "sourceColumn": "Channel"
+          },
+          {
+            "name": "OfficeID",
+            "dataType": "string",
+            "sourceColumn": "OfficeID"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimchannel = Source{[Schema=\"dbo\",Item=\"dimchannel\"]}[Data]",
+                "in",
+                "    dbo_dimchannel"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Employees",
+        "columns": [
+          {
+            "name": "dimEmployeesSkey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimEmployeesSkey"
+          },
+          {
+            "name": "EmployeeNkey",
+            "dataType": "string",
+            "sourceColumn": "EmployeeNkey"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "FullName",
+            "dataType": "string",
+            "sourceColumn": "FullName"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimEmployees = Source{[Schema=\"dbo\",Item=\"dimEmployees\"]}[Data]",
+                "in",
+                "    dbo_dimEmployees"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Lead",
+        "columns": [
+          {
+            "name": "dimLeadSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimLeadSKey"
+          },
+          {
+            "name": "leadNkey",
+            "dataType": "string",
+            "sourceColumn": "leadNkey"
+          },
+          {
+            "name": "LeadSource",
+            "dataType": "string",
+            "sourceColumn": "LeadSource"
+          },
+          {
+            "name": "LeadDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LeadDate"
+          },
+          {
+            "name": "LeadId",
+            "dataType": "string",
+            "sourceColumn": "LeadId"
+          },
+          {
+            "name": "leadsourcetype",
+            "dataType": "string",
+            "sourceColumn": "leadsourcetype"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimLead = Source{[Schema=\"dbo\",Item=\"dimLead\"]}[Data]",
+                "in",
+                "    dbo_dimLead"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "LoanJunk",
+        "columns": [
+          {
+            "name": "dimLoanJunkSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimLoanJunkSKey"
+          },
+          {
+            "name": "LoanStatusID",
+            "dataType": "string",
+            "sourceColumn": "LoanStatusID"
+          },
+          {
+            "name": "LoanStatus",
+            "dataType": "string",
+            "sourceColumn": "LoanStatus"
+          },
+          {
+            "name": "LoanStatusType",
+            "dataType": "string",
+            "sourceColumn": "LoanStatusType"
+          },
+          {
+            "name": "LoanPurposeID",
+            "dataType": "string",
+            "sourceColumn": "LoanPurposeID"
+          },
+          {
+            "name": "LoanPurpose",
+            "dataType": "string",
+            "sourceColumn": "LoanPurpose"
+          },
+          {
+            "name": "LoanPurposeType",
+            "dataType": "string",
+            "sourceColumn": "LoanPurposeType"
+          },
+          {
+            "name": "LoanTypeID",
+            "dataType": "string",
+            "sourceColumn": "LoanTypeID"
+          },
+          {
+            "name": "LoanType",
+            "dataType": "string",
+            "sourceColumn": "LoanType"
+          },
+          {
+            "name": "LoanTypeType",
+            "dataType": "string",
+            "sourceColumn": "LoanTypeType"
+          },
+          {
+            "name": "IsConstructionLoanID",
+            "dataType": "string",
+            "sourceColumn": "IsConstructionLoanID"
+          },
+          {
+            "name": "IsConstructionLoan",
+            "dataType": "string",
+            "sourceColumn": "IsConstructionLoan"
+          },
+          {
+            "name": "IsConstructionLoanType",
+            "dataType": "string",
+            "sourceColumn": "IsConstructionLoanType"
+          },
+          {
+            "name": "AmortizationTypeID",
+            "dataType": "string",
+            "sourceColumn": "AmortizationTypeID"
+          },
+          {
+            "name": "AmortizationType",
+            "dataType": "string",
+            "sourceColumn": "AmortizationType"
+          },
+          {
+            "name": "AmortizationTypeType",
+            "dataType": "string",
+            "sourceColumn": "AmortizationTypeType"
+          },
+          {
+            "name": "LoanTermID",
+            "dataType": "string",
+            "sourceColumn": "LoanTermID"
+          },
+          {
+            "name": "LoanTerm",
+            "dataType": "int64",
+            "sourceColumn": "LoanTerm"
+          },
+          {
+            "name": "LoanTermType",
+            "dataType": "string",
+            "sourceColumn": "LoanTermType"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimLoanJunk = Source{[Schema=\"dbo\",Item=\"dimLoanJunk\"]}[Data]",
+                "in",
+                "    dbo_dimLoanJunk"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "LoanProgram",
+        "columns": [
+          {
+            "name": "dimLoanProgramSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimLoanProgramSKey"
+          },
+          {
+            "name": "LoanProgramNkey",
+            "dataType": "string",
+            "sourceColumn": "LoanProgramNkey"
+          },
+          {
+            "name": "LoanProgram",
+            "dataType": "string",
+            "sourceColumn": "LoanProgram"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimLoanProgram = Source{[Schema=\"dbo\",Item=\"dimLoanProgram\"]}[Data]",
+                "in",
+                "    dbo_dimLoanProgram"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "MarketSource",
+        "columns": [
+          {
+            "name": "dimMarketSourceSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimMarketSourceSKey"
+          },
+          {
+            "name": "MarketSourceNKey",
+            "dataType": "string",
+            "sourceColumn": "MarketSourceNKey"
+          },
+          {
+            "name": "MarketSource",
+            "dataType": "string",
+            "sourceColumn": "MarketSource"
+          },
+          {
+            "name": "FundedTier",
+            "dataType": "int64",
+            "sourceColumn": "FundedTier"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimMarketSource = Source{[Schema=\"dbo\",Item=\"dimMarketSource\"]}[Data]",
+                "in",
+                "    dbo_dimMarketSource"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "MilestoneJunk",
+        "columns": [
+          {
+            "name": "dimMilestoneJunkSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimMilestoneJunkSKey"
+          },
+          {
+            "name": "MilestoneStatusID",
+            "dataType": "string",
+            "sourceColumn": "MilestoneStatusID"
+          },
+          {
+            "name": "MilestoneStatus",
+            "dataType": "string",
+            "sourceColumn": "MilestoneStatus"
+          },
+          {
+            "name": "MilestoneStatusType",
+            "dataType": "string",
+            "sourceColumn": "MilestoneStatusType"
+          },
+          {
+            "name": "CurrentMilestoneID",
+            "dataType": "string",
+            "sourceColumn": "CurrentMilestoneID"
+          },
+          {
+            "name": "CurrentMilestone",
+            "dataType": "string",
+            "sourceColumn": "CurrentMilestone"
+          },
+          {
+            "name": "CurrentMilestoneType",
+            "dataType": "string",
+            "sourceColumn": "CurrentMilestoneType"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimMilestoneJunk = Source{[Schema=\"dbo\",Item=\"dimMilestoneJunk\"]}[Data]",
+                "in",
+                "    dbo_dimMilestoneJunk"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "MortgageInsuranceCompanies",
+        "columns": [
+          {
+            "name": "dimMortgageInsuranceCompaniesSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimMortgageInsuranceCompaniesSKey"
+          },
+          {
+            "name": "MortgageInsuranceCompaniesNKey",
+            "dataType": "string",
+            "sourceColumn": "MortgageInsuranceCompaniesNKey"
+          },
+          {
+            "name": "MortgageInsuranceCompany",
+            "dataType": "string",
+            "sourceColumn": "MortgageInsuranceCompany"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimMortgageInsuranceCompanies = Source{[Schema=\"dbo\",Item=\"dimMortgageInsuranceCompanies\"]}[Data]",
+                "in",
+                "    dbo_dimMortgageInsuranceCompanies"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "PropertiesOnSale",
+        "columns": [
+          {
+            "name": "dimPropertiesOnSaleSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimPropertiesOnSaleSKey"
+          },
+          {
+            "name": "PropertiesOnSaleNKey",
+            "dataType": "string",
+            "sourceColumn": "PropertiesOnSaleNKey"
+          },
+          {
+            "name": "AppraisedValue",
+            "dataType": "double",
+            "sourceColumn": "AppraisedValue"
+          },
+          {
+            "name": "HouseOnSaleState",
+            "dataType": "string",
+            "sourceColumn": "HouseOnSaleState"
+          },
+          {
+            "name": "HouseOnSaleStreet",
+            "dataType": "string",
+            "sourceColumn": "HouseOnSaleStreet"
+          },
+          {
+            "name": "HouseOnSaleZip",
+            "dataType": "string",
+            "sourceColumn": "HouseOnSaleZip"
+          },
+          {
+            "name": "PropertyOccupancyType",
+            "dataType": "string",
+            "sourceColumn": "PropertyOccupancyType"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimPropertiesOnSale = Source{[Schema=\"dbo\",Item=\"dimPropertiesOnSale\"]}[Data]",
+                "in",
+                "    dbo_dimPropertiesOnSale"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Source",
+        "columns": [
+          {
+            "name": "dimSourceSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimSourceSKey"
+          },
+          {
+            "name": "SourceNKey",
+            "dataType": "string",
+            "sourceColumn": "SourceNKey"
+          },
+          {
+            "name": "SourceName",
+            "dataType": "string",
+            "sourceColumn": "SourceName"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimSource = Source{[Schema=\"dbo\",Item=\"dimSource\"]}[Data]",
+                "in",
+                "    dbo_dimSource"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactLoans_SSAS",
+        "columns": [
+          {
+            "name": "LoanID",
+            "dataType": "string",
+            "sourceColumn": "LoanID"
+          },
+          {
+            "name": "dimBorrowers_dimBorrowerSkey",
+            "dataType": "int64",
+            "sourceColumn": "dimBorrowers_dimBorrowerSkey"
+          },
+          {
+            "name": "dimBorrowersAddress_dimBorrowersAddressSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimBorrowersAddress_dimBorrowersAddressSKey"
+          },
+          {
+            "name": "dimchannel_dimChannelSkey",
+            "dataType": "int64",
+            "sourceColumn": "dimchannel_dimChannelSkey"
+          },
+          {
+            "name": "dimPropertiesOnSale_dimPropertiesOnSaleSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimPropertiesOnSale_dimPropertiesOnSaleSKey"
+          },
+          {
+            "name": "dimMarketsource_dimMarketsourceSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimMarketsource_dimMarketsourceSKey"
+          },
+          {
+            "name": "dimsource_dimSourceSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimsource_dimSourceSKey"
+          },
+          {
+            "name": "dimApprovalJunk_dimUnderWriterriskAssessKey",
+            "dataType": "int64",
+            "sourceColumn": "dimApprovalJunk_dimUnderWriterriskAssessKey"
+          },
+          {
+            "name": "dimApprovalJunk_dimQAStatusKey",
+            "dataType": "int64",
+            "sourceColumn": "dimApprovalJunk_dimQAStatusKey"
+          },
+          {
+            "name": "dimApprovalJunk_dimApprovalStatusKey",
+            "dataType": "int64",
+            "sourceColumn": "dimApprovalJunk_dimApprovalStatusKey"
+          },
+          {
+            "name": "dimMilestoneJunk_dimMilestoneStatusKey",
+            "dataType": "int64",
+            "sourceColumn": "dimMilestoneJunk_dimMilestoneStatusKey"
+          },
+          {
+            "name": "dimMilestoneJunk_dimCurrentMilestoneKey",
+            "dataType": "int64",
+            "sourceColumn": "dimMilestoneJunk_dimCurrentMilestoneKey"
+          },
+          {
+            "name": "dimLoanProgram_dimLoanProgramSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLoanProgram_dimLoanProgramSKey"
+          },
+          {
+            "name": "dimLoanJunk_dimLoanStatusKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLoanJunk_dimLoanStatusKey"
+          },
+          {
+            "name": "dimLoanJunk_dimLoanPurposeKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLoanJunk_dimLoanPurposeKey"
+          },
+          {
+            "name": "dimLoanJunk_dimLoanTypeKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLoanJunk_dimLoanTypeKey"
+          },
+          {
+            "name": "dimLoanJunk_dimIsConstructionLoanKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLoanJunk_dimIsConstructionLoanKey"
+          },
+          {
+            "name": "dimLoanJunk_dimAmortizationTypeKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLoanJunk_dimAmortizationTypeKey"
+          },
+          {
+            "name": "dimLoanJunk_dimLoanTermKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLoanJunk_dimLoanTermKey"
+          },
+          {
+            "name": "dimLead_dimLeadSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimLead_dimLeadSKey"
+          },
+          {
+            "name": "dimEmployees_dimLoanOfficerSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimEmployees_dimLoanOfficerSKey"
+          },
+          {
+            "name": "dimEmployees_dimProcessorSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimEmployees_dimProcessorSKey"
+          },
+          {
+            "name": "dimEmployees_dimCloserSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimEmployees_dimCloserSKey"
+          },
+          {
+            "name": "dimEmployees_dimUnderwriterSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimEmployees_dimUnderwriterSKey"
+          },
+          {
+            "name": "dimMortgageInsuranceCompanies_dimMortgageInsuranceCompaniesSKey",
+            "dataType": "int64",
+            "sourceColumn": "dimMortgageInsuranceCompanies_dimMortgageInsuranceCompaniesSKey"
+          },
+          {
+            "name": "AnnualPercentageRate",
+            "dataType": "double",
+            "sourceColumn": "AnnualPercentageRate"
+          },
+          {
+            "name": "BottomQualificationRatios",
+            "dataType": "double",
+            "sourceColumn": "BottomQualificationRatios"
+          },
+          {
+            "name": "CombinedLoanToValueRatio",
+            "dataType": "double",
+            "sourceColumn": "CombinedLoanToValueRatio"
+          },
+          {
+            "name": "InterestRate",
+            "dataType": "double",
+            "sourceColumn": "InterestRate"
+          },
+          {
+            "name": "IntialLoanAmount",
+            "dataType": "double",
+            "sourceColumn": "IntialLoanAmount"
+          },
+          {
+            "name": "LoanToValueRatio",
+            "dataType": "double",
+            "sourceColumn": "LoanToValueRatio"
+          },
+          {
+            "name": "Net_Buy_Price",
+            "dataType": "double",
+            "sourceColumn": "Net_Buy_Price"
+          },
+          {
+            "name": "OriginationFee",
+            "dataType": "double",
+            "sourceColumn": "OriginationFee"
+          },
+          {
+            "name": "TopQualificationRatios",
+            "dataType": "double",
+            "sourceColumn": "TopQualificationRatios"
+          },
+          {
+            "name": "TotalFees",
+            "dataType": "double",
+            "sourceColumn": "TotalFees"
+          },
+          {
+            "name": "TotalLoanAmt",
+            "dataType": "double",
+            "sourceColumn": "TotalLoanAmt"
+          },
+          {
+            "name": "ActualClosingDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ActualClosingDate"
+          },
+          {
+            "name": "ApplicationDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ApplicationDate"
+          },
+          {
+            "name": "ApplicationReturnedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ApplicationReturnedDate"
+          },
+          {
+            "name": "ApplicationStartedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ApplicationStartedDate"
+          },
+          {
+            "name": "ApprovalDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ApprovalDate"
+          },
+          {
+            "name": "ClosingDisclosureRecievedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ClosingDisclosureRecievedDate"
+          },
+          {
+            "name": "ConditionalApprovalDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ConditionalApprovalDate"
+          },
+          {
+            "name": "ConditionsReceivedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ConditionsReceivedDate"
+          },
+          {
+            "name": "CreditPullDate",
+            "dataType": "dateTime",
+            "sourceColumn": "CreditPullDate"
+          },
+          {
+            "name": "CurrentMilestoneTrackingDate",
+            "dataType": "dateTime",
+            "sourceColumn": "CurrentMilestoneTrackingDate"
+          },
+          {
+            "name": "DenialDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DenialDate"
+          },
+          {
+            "name": "DisbursementDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DisbursementDate"
+          },
+          {
+            "name": "DocumentPreparedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DocumentPreparedDate"
+          },
+          {
+            "name": "DocumentResubmittedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DocumentResubmittedDate"
+          },
+          {
+            "name": "DocumentReviewedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DocumentReviewedDate"
+          },
+          {
+            "name": "DocumentShippingDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DocumentShippingDate"
+          },
+          {
+            "name": "DocumentSigningdate",
+            "dataType": "dateTime",
+            "sourceColumn": "DocumentSigningdate"
+          },
+          {
+            "name": "DocumentSubmittalDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DocumentSubmittalDate"
+          },
+          {
+            "name": "EstimatedLoanClosingDate",
+            "dataType": "dateTime",
+            "sourceColumn": "EstimatedLoanClosingDate"
+          },
+          {
+            "name": "FinalDocumentDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FinalDocumentDate"
+          },
+          {
+            "name": "FundedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FundedDate"
+          },
+          {
+            "name": "InitialClosingDisclosureSentDate",
+            "dataType": "dateTime",
+            "sourceColumn": "InitialClosingDisclosureSentDate"
+          },
+          {
+            "name": "InitialDisclosureProvidedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "InitialDisclosureProvidedDate"
+          },
+          {
+            "name": "InitialLoanEstimateDueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "InitialLoanEstimateDueDate"
+          },
+          {
+            "name": "InitialLoanEstimateSentDate",
+            "dataType": "dateTime",
+            "sourceColumn": "InitialLoanEstimateSentDate"
+          },
+          {
+            "name": "LastModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LastModifiedDate"
+          },
+          {
+            "name": "LoanExpirationDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LoanExpirationDate"
+          },
+          {
+            "name": "LoanInformationDocumentDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LoanInformationDocumentDate"
+          },
+          {
+            "name": "LoanSetupDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LoanSetupDate"
+          },
+          {
+            "name": "LoanStatusActionDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LoanStatusActionDate"
+          },
+          {
+            "name": "LockDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LockDate"
+          },
+          {
+            "name": "LockExpireDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LockExpireDate"
+          },
+          {
+            "name": "ProcessingDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ProcessingDate"
+          },
+          {
+            "name": "QAFailDate",
+            "dataType": "dateTime",
+            "sourceColumn": "QAFailDate"
+          },
+          {
+            "name": "UnderwritingReceivedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "UnderwritingReceivedDate"
+          },
+          {
+            "name": "FalloutRate",
+            "dataType": "int64",
+            "sourceColumn": "FalloutRate"
+          },
+          {
+            "name": "AverageCycleTime",
+            "dataType": "int64",
+            "sourceColumn": "AverageCycleTime"
+          },
+          {
+            "name": "Application_Approval_Rate",
+            "dataType": "int64",
+            "sourceColumn": "Application_Approval_Rate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_FactLoans_SSAS = Source{[Schema=\"dbo\",Item=\"FactLoans_SSAS\"]}[Data]",
+                "in",
+                "    dbo_FactLoans_SSAS"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Fallout Rate",
+            "expression": "sum((FactLoans_SSAS[FalloutRate]))/COUNT(FactLoans_SSAS[LockDate])*100/1000",
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "Average CycleTime",
+            "expression": "AVERAGE([AverageCycleTime])",
+            "formatString": "0"
+          },
+          {
+            "name": "Application Approval Rate",
+            "expression": "(((SUM(FactLoans_SSAS[Application_Approval_Rate]))/COUNT(FactLoans_SSAS[LoanID]))*100)/1000",
+            "formatString": "0.00%;-0.00%;0.00%"
+          }
+        ]
+      },
+      {
+        "name": "dimBorrowersAddress",
+        "columns": [
+          {
+            "name": "dimBorrowersAddressSKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dimBorrowersAddressSKey"
+          },
+          {
+            "name": "BorrowerAddressNKey",
+            "dataType": "string",
+            "sourceColumn": "BorrowerAddressNKey"
+          },
+          {
+            "name": "BorrowerAddress",
+            "dataType": "string",
+            "sourceColumn": "BorrowerAddress"
+          },
+          {
+            "name": "BorrowerCity",
+            "dataType": "string",
+            "sourceColumn": "BorrowerCity"
+          },
+          {
+            "name": "BorrowerState",
+            "dataType": "string",
+            "sourceColumn": "BorrowerState"
+          },
+          {
+            "name": "BorrowerZip",
+            "dataType": "string",
+            "sourceColumn": "BorrowerZip"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Enddate",
+            "dataType": "dateTime",
+            "sourceColumn": "Enddate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/DINNALAPTOP\\DINNA2019;QLDW\",",
+                "    dbo_dimBorrowersAddress = Source{[Schema=\"dbo\",Item=\"dimBorrowersAddress\"]}[Data]",
+                "in",
+                "    dbo_dimBorrowersAddress"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "b659d06d-8439-44d0-b336-06f71a1f6862",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimApprovalJunk_dimUnderWriterriskAssessKey",
+        "toTable": "ApprovalJunk",
+        "toColumn": "DimApprovalSSkey"
+      },
+      {
+        "name": "cea056e1-3eb8-4885-a01a-fe565ef2c3f5",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimApprovalJunk_dimQAStatusKey",
+        "toTable": "ApprovalJunk",
+        "toColumn": "DimApprovalSSkey",
+        "isActive": false
+      },
+      {
+        "name": "2865ee6b-e1e4-44b4-9a48-31dc167f849f",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimApprovalJunk_dimApprovalStatusKey",
+        "toTable": "ApprovalJunk",
+        "toColumn": "DimApprovalSSkey",
+        "isActive": false
+      },
+      {
+        "name": "33b74fbe-c57c-43b2-ad1d-8c94ea316c8f",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimBorrowers_dimBorrowerSkey",
+        "toTable": "Borrowers",
+        "toColumn": "dimBorrowerSkey"
+      },
+      {
+        "name": "7f225338-c4a2-44dd-94c6-cc7d4ade39b1",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimchannel_dimChannelSkey",
+        "toTable": "channel",
+        "toColumn": "dimChannelSkey"
+      },
+      {
+        "name": "afbe81c9-90f2-47f5-8169-63142ed527a9",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimMilestoneJunk_dimMilestoneStatusKey",
+        "toTable": "MilestoneJunk",
+        "toColumn": "dimMilestoneJunkSKey"
+      },
+      {
+        "name": "381b6412-b89e-4cf3-9c95-0c972434e06c",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimMilestoneJunk_dimCurrentMilestoneKey",
+        "toTable": "MilestoneJunk",
+        "toColumn": "dimMilestoneJunkSKey",
+        "isActive": false
+      },
+      {
+        "name": "95ded080-172e-41e1-92a4-527e8fd72d74",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimsource_dimSourceSKey",
+        "toTable": "Source",
+        "toColumn": "dimSourceSKey"
+      },
+      {
+        "name": "f6474d56-4838-4581-b5b9-d401f0c310b5",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLoanJunk_dimLoanStatusKey",
+        "toTable": "LoanJunk",
+        "toColumn": "dimLoanJunkSKey"
+      },
+      {
+        "name": "3c95e03a-68c4-45cc-8ba1-71c67b579b2c",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLoanJunk_dimLoanPurposeKey",
+        "toTable": "LoanJunk",
+        "toColumn": "dimLoanJunkSKey",
+        "isActive": false
+      },
+      {
+        "name": "c418aeed-84ba-482a-9372-841eab761b6f",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLoanJunk_dimLoanTypeKey",
+        "toTable": "LoanJunk",
+        "toColumn": "dimLoanJunkSKey",
+        "isActive": false
+      },
+      {
+        "name": "497e3a11-f868-4c06-90fd-89427219f645",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLoanJunk_dimIsConstructionLoanKey",
+        "toTable": "LoanJunk",
+        "toColumn": "dimLoanJunkSKey",
+        "isActive": false
+      },
+      {
+        "name": "623ab92f-d342-4449-999e-05d46905477f",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLoanJunk_dimAmortizationTypeKey",
+        "toTable": "LoanJunk",
+        "toColumn": "dimLoanJunkSKey",
+        "isActive": false
+      },
+      {
+        "name": "b917a024-d68a-4458-86cc-7b091105a93f",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLoanJunk_dimLoanTermKey",
+        "toTable": "LoanJunk",
+        "toColumn": "dimLoanJunkSKey",
+        "isActive": false
+      },
+      {
+        "name": "b7c6aeed-ed8f-4dbc-a40b-384d80d77f32",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimEmployees_dimLoanOfficerSKey",
+        "toTable": "Employees",
+        "toColumn": "dimEmployeesSkey"
+      },
+      {
+        "name": "899298ae-dfe3-4b47-9ea7-277237d66fda",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimEmployees_dimProcessorSKey",
+        "toTable": "Employees",
+        "toColumn": "dimEmployeesSkey",
+        "isActive": false
+      },
+      {
+        "name": "b5f9aed4-8637-4476-a812-10131f4fb716",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimEmployees_dimCloserSKey",
+        "toTable": "Employees",
+        "toColumn": "dimEmployeesSkey",
+        "isActive": false
+      },
+      {
+        "name": "f9a3703b-ccb4-43e7-9180-902278431c80",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimEmployees_dimUnderwriterSKey",
+        "toTable": "Employees",
+        "toColumn": "dimEmployeesSkey",
+        "isActive": false
+      },
+      {
+        "name": "a0ebfac2-7898-4213-81d9-dc8e74943e17",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLead_dimLeadSKey",
+        "toTable": "Lead",
+        "toColumn": "dimLeadSKey"
+      },
+      {
+        "name": "6c81becd-9d9e-4abb-9c93-4d3130a704cc",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimPropertiesOnSale_dimPropertiesOnSaleSKey",
+        "toTable": "PropertiesOnSale",
+        "toColumn": "dimPropertiesOnSaleSKey"
+      },
+      {
+        "name": "44b69e22-1908-4bb2-b6da-0435da4bc6a9",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimMarketsource_dimMarketsourceSKey",
+        "toTable": "MarketSource",
+        "toColumn": "dimMarketSourceSKey"
+      },
+      {
+        "name": "217e4b52-d3d5-46f8-9aeb-3ebc5b6f2f6f",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimLoanProgram_dimLoanProgramSKey",
+        "toTable": "LoanProgram",
+        "toColumn": "dimLoanProgramSKey"
+      },
+      {
+        "name": "d5193831-ffa8-484c-96b6-3a68fd881eec",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimMortgageInsuranceCompanies_dimMortgageInsuranceCompaniesSKey",
+        "toTable": "MortgageInsuranceCompanies",
+        "toColumn": "dimMortgageInsuranceCompaniesSKey"
+      },
+      {
+        "name": "e3b66aab-760d-45cc-8968-914b1f51217f",
+        "fromTable": "FactLoans_SSAS",
+        "fromColumn": "dimBorrowersAddress_dimBorrowersAddressSKey",
+        "toTable": "dimBorrowersAddress",
+        "toColumn": "dimBorrowersAddressSKey"
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "Loan Officer",
+        "tables": [
+          {
+            "name": "ApprovalJunk",
+            "columns": [
+              {
+                "name": "ApprovalStatus"
+              },
+              {
+                "name": "ApprovalStatusID"
+              },
+              {
+                "name": "ApprovalStatusType"
+              },
+              {
+                "name": "DimApprovalSSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "QAStatus"
+              },
+              {
+                "name": "QAStatusID"
+              },
+              {
+                "name": "QAStatusType"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "UnderwriterRiskAssess"
+              },
+              {
+                "name": "UnderwriterRiskAssessID"
+              },
+              {
+                "name": "UnderwriterRiskAssessType"
+              }
+            ]
+          },
+          {
+            "name": "Borrowers",
+            "columns": [
+              {
+                "name": "BorrowerFirstName"
+              },
+              {
+                "name": "BorrowerFullName"
+              },
+              {
+                "name": "BorrowerGender"
+              },
+              {
+                "name": "BorrowerLastName"
+              },
+              {
+                "name": "BorrowerNkey"
+              },
+              {
+                "name": "BorrowerNoYearsOnJob"
+              },
+              {
+                "name": "dimBorrowerSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsBorrowerSelfEmployeedFlag"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "channel",
+            "columns": [
+              {
+                "name": "Channel"
+              },
+              {
+                "name": "ChannelNkey"
+              },
+              {
+                "name": "dimChannelSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "OfficeID"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "Employees",
+            "columns": [
+              {
+                "name": "dimEmployeesSkey"
+              },
+              {
+                "name": "EmailAddress"
+              },
+              {
+                "name": "EmployeeNkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FirstName"
+              },
+              {
+                "name": "FullName"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LastName"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Title"
+              }
+            ]
+          },
+          {
+            "name": "Lead",
+            "columns": [
+              {
+                "name": "dimLeadSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LeadDate"
+              },
+              {
+                "name": "LeadId"
+              },
+              {
+                "name": "leadNkey"
+              },
+              {
+                "name": "LeadSource"
+              },
+              {
+                "name": "leadsourcetype"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "LoanJunk",
+            "columns": [
+              {
+                "name": "AmortizationType"
+              },
+              {
+                "name": "AmortizationTypeID"
+              },
+              {
+                "name": "AmortizationTypeType"
+              },
+              {
+                "name": "dimLoanJunkSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsConstructionLoan"
+              },
+              {
+                "name": "IsConstructionLoanID"
+              },
+              {
+                "name": "IsConstructionLoanType"
+              },
+              {
+                "name": "LoanPurpose"
+              },
+              {
+                "name": "LoanPurposeID"
+              },
+              {
+                "name": "LoanPurposeType"
+              },
+              {
+                "name": "LoanStatus"
+              },
+              {
+                "name": "LoanStatusID"
+              },
+              {
+                "name": "LoanStatusType"
+              },
+              {
+                "name": "LoanTerm"
+              },
+              {
+                "name": "LoanTermID"
+              },
+              {
+                "name": "LoanTermType"
+              },
+              {
+                "name": "LoanType"
+              },
+              {
+                "name": "LoanTypeID"
+              },
+              {
+                "name": "LoanTypeType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "LoanProgram",
+            "columns": [
+              {
+                "name": "dimLoanProgramSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LoanProgram"
+              },
+              {
+                "name": "LoanProgramNkey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MarketSource",
+            "columns": [
+              {
+                "name": "dimMarketSourceSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FundedTier"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MarketSource"
+              },
+              {
+                "name": "MarketSourceNKey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MilestoneJunk",
+            "columns": [
+              {
+                "name": "CurrentMilestone"
+              },
+              {
+                "name": "CurrentMilestoneID"
+              },
+              {
+                "name": "CurrentMilestoneType"
+              },
+              {
+                "name": "dimMilestoneJunkSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MilestoneStatus"
+              },
+              {
+                "name": "MilestoneStatusID"
+              },
+              {
+                "name": "MilestoneStatusType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MortgageInsuranceCompanies",
+            "columns": [
+              {
+                "name": "dimMortgageInsuranceCompaniesSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MortgageInsuranceCompaniesNKey"
+              },
+              {
+                "name": "MortgageInsuranceCompany"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "PropertiesOnSale",
+            "columns": [
+              {
+                "name": "AppraisedValue"
+              },
+              {
+                "name": "dimPropertiesOnSaleSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "HouseOnSaleState"
+              },
+              {
+                "name": "HouseOnSaleStreet"
+              },
+              {
+                "name": "HouseOnSaleZip"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "PropertiesOnSaleNKey"
+              },
+              {
+                "name": "PropertyOccupancyType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "Source",
+            "columns": [
+              {
+                "name": "dimSourceSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "SourceName"
+              },
+              {
+                "name": "SourceNKey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Loan Closer",
+        "tables": [
+          {
+            "name": "ApprovalJunk",
+            "columns": [
+              {
+                "name": "ApprovalStatus"
+              },
+              {
+                "name": "ApprovalStatusID"
+              },
+              {
+                "name": "ApprovalStatusType"
+              },
+              {
+                "name": "DimApprovalSSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "QAStatus"
+              },
+              {
+                "name": "QAStatusID"
+              },
+              {
+                "name": "QAStatusType"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "UnderwriterRiskAssess"
+              },
+              {
+                "name": "UnderwriterRiskAssessID"
+              },
+              {
+                "name": "UnderwriterRiskAssessType"
+              }
+            ]
+          },
+          {
+            "name": "Borrowers",
+            "columns": [
+              {
+                "name": "BorrowerFirstName"
+              },
+              {
+                "name": "BorrowerFullName"
+              },
+              {
+                "name": "BorrowerGender"
+              },
+              {
+                "name": "BorrowerLastName"
+              },
+              {
+                "name": "BorrowerNkey"
+              },
+              {
+                "name": "BorrowerNoYearsOnJob"
+              },
+              {
+                "name": "dimBorrowerSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FinallCreditScore"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsBorrowerSelfEmployeedFlag"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "channel",
+            "columns": [
+              {
+                "name": "Channel"
+              },
+              {
+                "name": "ChannelNkey"
+              },
+              {
+                "name": "dimChannelSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "OfficeID"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "Employees",
+            "columns": [
+              {
+                "name": "dimEmployeesSkey"
+              },
+              {
+                "name": "EmailAddress"
+              },
+              {
+                "name": "EmployeeNkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FirstName"
+              },
+              {
+                "name": "FullName"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LastName"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Title"
+              }
+            ]
+          },
+          {
+            "name": "Lead",
+            "columns": [
+              {
+                "name": "dimLeadSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LeadDate"
+              },
+              {
+                "name": "LeadId"
+              },
+              {
+                "name": "leadNkey"
+              },
+              {
+                "name": "leadsourcetype"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "LoanJunk",
+            "columns": [
+              {
+                "name": "AmortizationType"
+              },
+              {
+                "name": "AmortizationTypeID"
+              },
+              {
+                "name": "AmortizationTypeType"
+              },
+              {
+                "name": "dimLoanJunkSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsConstructionLoan"
+              },
+              {
+                "name": "IsConstructionLoanID"
+              },
+              {
+                "name": "IsConstructionLoanType"
+              },
+              {
+                "name": "LoanPurpose"
+              },
+              {
+                "name": "LoanPurposeID"
+              },
+              {
+                "name": "LoanPurposeType"
+              },
+              {
+                "name": "LoanStatus"
+              },
+              {
+                "name": "LoanStatusID"
+              },
+              {
+                "name": "LoanStatusType"
+              },
+              {
+                "name": "LoanTerm"
+              },
+              {
+                "name": "LoanTermID"
+              },
+              {
+                "name": "LoanTermType"
+              },
+              {
+                "name": "LoanType"
+              },
+              {
+                "name": "LoanTypeID"
+              },
+              {
+                "name": "LoanTypeType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "LoanProgram",
+            "columns": [
+              {
+                "name": "dimLoanProgramSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LoanProgram"
+              },
+              {
+                "name": "LoanProgramNkey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MarketSource",
+            "columns": [
+              {
+                "name": "dimMarketSourceSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FundedTier"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MarketSourceNKey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MilestoneJunk",
+            "columns": [
+              {
+                "name": "CurrentMilestone"
+              },
+              {
+                "name": "CurrentMilestoneID"
+              },
+              {
+                "name": "CurrentMilestoneType"
+              },
+              {
+                "name": "dimMilestoneJunkSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MilestoneStatus"
+              },
+              {
+                "name": "MilestoneStatusID"
+              },
+              {
+                "name": "MilestoneStatusType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MortgageInsuranceCompanies",
+            "columns": [
+              {
+                "name": "dimMortgageInsuranceCompaniesSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MortgageInsuranceCompaniesNKey"
+              },
+              {
+                "name": "MortgageInsuranceCompany"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "PropertiesOnSale",
+            "columns": [
+              {
+                "name": "AppraisedValue"
+              },
+              {
+                "name": "dimPropertiesOnSaleSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "HouseOnSaleState"
+              },
+              {
+                "name": "HouseOnSaleStreet"
+              },
+              {
+                "name": "HouseOnSaleZip"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "PropertiesOnSaleNKey"
+              },
+              {
+                "name": "PropertyOccupancyType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "Source",
+            "columns": [
+              {
+                "name": "dimSourceSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "SourceName"
+              },
+              {
+                "name": "SourceNKey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "FactLoans_SSAS",
+            "columns": [
+              {
+                "name": "LoanID"
+              },
+              {
+                "name": "dimBorrowers_dimBorrowerSkey"
+              },
+              {
+                "name": "dimBorrowersAddress_dimBorrowersAddressSKey"
+              },
+              {
+                "name": "dimchannel_dimChannelSkey"
+              },
+              {
+                "name": "dimPropertiesOnSale_dimPropertiesOnSaleSKey"
+              },
+              {
+                "name": "dimMarketsource_dimMarketsourceSKey"
+              },
+              {
+                "name": "dimsource_dimSourceSKey"
+              },
+              {
+                "name": "dimApprovalJunk_dimUnderWriterriskAssessKey"
+              },
+              {
+                "name": "dimApprovalJunk_dimQAStatusKey"
+              },
+              {
+                "name": "dimApprovalJunk_dimApprovalStatusKey"
+              },
+              {
+                "name": "dimMilestoneJunk_dimMilestoneStatusKey"
+              },
+              {
+                "name": "dimMilestoneJunk_dimCurrentMilestoneKey"
+              },
+              {
+                "name": "dimLoanProgram_dimLoanProgramSKey"
+              },
+              {
+                "name": "dimLoanJunk_dimLoanStatusKey"
+              },
+              {
+                "name": "dimLoanJunk_dimLoanPurposeKey"
+              },
+              {
+                "name": "dimLoanJunk_dimLoanTypeKey"
+              },
+              {
+                "name": "dimLoanJunk_dimIsConstructionLoanKey"
+              },
+              {
+                "name": "dimLoanJunk_dimAmortizationTypeKey"
+              },
+              {
+                "name": "dimLoanJunk_dimLoanTermKey"
+              },
+              {
+                "name": "dimLead_dimLeadSKey"
+              },
+              {
+                "name": "dimEmployees_dimLoanOfficerSKey"
+              },
+              {
+                "name": "dimEmployees_dimProcessorSKey"
+              },
+              {
+                "name": "dimEmployees_dimCloserSKey"
+              },
+              {
+                "name": "dimEmployees_dimUnderwriterSKey"
+              },
+              {
+                "name": "dimMortgageInsuranceCompanies_dimMortgageInsuranceCompaniesSKey"
+              },
+              {
+                "name": "AnnualPercentageRate"
+              },
+              {
+                "name": "BottomQualificationRatios"
+              },
+              {
+                "name": "CombinedLoanToValueRatio"
+              },
+              {
+                "name": "InterestRate"
+              },
+              {
+                "name": "IntialLoanAmount"
+              },
+              {
+                "name": "LoanToValueRatio"
+              },
+              {
+                "name": "Net_Buy_Price"
+              },
+              {
+                "name": "OriginationFee"
+              },
+              {
+                "name": "TopQualificationRatios"
+              },
+              {
+                "name": "TotalFees"
+              },
+              {
+                "name": "TotalLoanAmt"
+              },
+              {
+                "name": "ActualClosingDate"
+              },
+              {
+                "name": "ApplicationDate"
+              },
+              {
+                "name": "ApplicationReturnedDate"
+              },
+              {
+                "name": "ApplicationStartedDate"
+              },
+              {
+                "name": "ApprovalDate"
+              },
+              {
+                "name": "ClosingDisclosureRecievedDate"
+              },
+              {
+                "name": "ConditionalApprovalDate"
+              },
+              {
+                "name": "ConditionsReceivedDate"
+              },
+              {
+                "name": "CreditPullDate"
+              },
+              {
+                "name": "CurrentMilestoneTrackingDate"
+              },
+              {
+                "name": "DenialDate"
+              },
+              {
+                "name": "DisbursementDate"
+              },
+              {
+                "name": "DocumentPreparedDate"
+              },
+              {
+                "name": "DocumentResubmittedDate"
+              },
+              {
+                "name": "DocumentReviewedDate"
+              },
+              {
+                "name": "DocumentShippingDate"
+              },
+              {
+                "name": "DocumentSigningdate"
+              },
+              {
+                "name": "DocumentSubmittalDate"
+              },
+              {
+                "name": "EstimatedLoanClosingDate"
+              },
+              {
+                "name": "FinalDocumentDate"
+              },
+              {
+                "name": "FundedDate"
+              },
+              {
+                "name": "InitialClosingDisclosureSentDate"
+              },
+              {
+                "name": "InitialDisclosureProvidedDate"
+              },
+              {
+                "name": "InitialLoanEstimateDueDate"
+              },
+              {
+                "name": "InitialLoanEstimateSentDate"
+              },
+              {
+                "name": "LastModifiedDate"
+              },
+              {
+                "name": "LoanExpirationDate"
+              },
+              {
+                "name": "LoanInformationDocumentDate"
+              },
+              {
+                "name": "LoanSetupDate"
+              },
+              {
+                "name": "LoanStatusActionDate"
+              },
+              {
+                "name": "LockDate"
+              },
+              {
+                "name": "LockExpireDate"
+              },
+              {
+                "name": "ProcessingDate"
+              },
+              {
+                "name": "QAFailDate"
+              },
+              {
+                "name": "UnderwritingReceivedDate"
+              },
+              {
+                "name": "FalloutRate"
+              },
+              {
+                "name": "AverageCycleTime"
+              },
+              {
+                "name": "Application_Approval_Rate"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Fallout Rate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Loan Processor",
+        "tables": [
+          {
+            "name": "ApprovalJunk",
+            "columns": [
+              {
+                "name": "ApprovalStatus"
+              },
+              {
+                "name": "ApprovalStatusID"
+              },
+              {
+                "name": "ApprovalStatusType"
+              },
+              {
+                "name": "DimApprovalSSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "QAStatus"
+              },
+              {
+                "name": "QAStatusID"
+              },
+              {
+                "name": "QAStatusType"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "UnderwriterRiskAssess"
+              },
+              {
+                "name": "UnderwriterRiskAssessID"
+              },
+              {
+                "name": "UnderwriterRiskAssessType"
+              }
+            ]
+          },
+          {
+            "name": "Borrowers",
+            "columns": [
+              {
+                "name": "BorrowerFirstName"
+              },
+              {
+                "name": "BorrowerFullName"
+              },
+              {
+                "name": "BorrowerGender"
+              },
+              {
+                "name": "BorrowerLastName"
+              },
+              {
+                "name": "BorrowerNkey"
+              },
+              {
+                "name": "BorrowerNoYearsOnJob"
+              },
+              {
+                "name": "dimBorrowerSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FinallCreditScore"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsBorrowerSelfEmployeedFlag"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "channel",
+            "columns": [
+              {
+                "name": "Channel"
+              },
+              {
+                "name": "ChannelNkey"
+              },
+              {
+                "name": "dimChannelSkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "OfficeID"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "Employees",
+            "columns": [
+              {
+                "name": "dimEmployeesSkey"
+              },
+              {
+                "name": "EmailAddress"
+              },
+              {
+                "name": "EmployeeNkey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FirstName"
+              },
+              {
+                "name": "FullName"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LastName"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Title"
+              }
+            ]
+          },
+          {
+            "name": "Lead",
+            "columns": [
+              {
+                "name": "dimLeadSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LeadDate"
+              },
+              {
+                "name": "LeadId"
+              },
+              {
+                "name": "leadNkey"
+              },
+              {
+                "name": "leadsourcetype"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "LoanJunk",
+            "columns": [
+              {
+                "name": "AmortizationType"
+              },
+              {
+                "name": "AmortizationTypeID"
+              },
+              {
+                "name": "AmortizationTypeType"
+              },
+              {
+                "name": "dimLoanJunkSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "IsConstructionLoan"
+              },
+              {
+                "name": "IsConstructionLoanID"
+              },
+              {
+                "name": "IsConstructionLoanType"
+              },
+              {
+                "name": "LoanPurposeID"
+              },
+              {
+                "name": "LoanPurposeType"
+              },
+              {
+                "name": "LoanStatus"
+              },
+              {
+                "name": "LoanStatusID"
+              },
+              {
+                "name": "LoanStatusType"
+              },
+              {
+                "name": "LoanTerm"
+              },
+              {
+                "name": "LoanTermID"
+              },
+              {
+                "name": "LoanTermType"
+              },
+              {
+                "name": "LoanTypeID"
+              },
+              {
+                "name": "LoanTypeType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "LoanProgram",
+            "columns": [
+              {
+                "name": "dimLoanProgramSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "LoanProgram"
+              },
+              {
+                "name": "LoanProgramNkey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MarketSource",
+            "columns": [
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "FundedTier"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MarketSourceNKey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MilestoneJunk",
+            "columns": [
+              {
+                "name": "CurrentMilestone"
+              },
+              {
+                "name": "CurrentMilestoneID"
+              },
+              {
+                "name": "CurrentMilestoneType"
+              },
+              {
+                "name": "dimMilestoneJunkSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MilestoneStatus"
+              },
+              {
+                "name": "MilestoneStatusID"
+              },
+              {
+                "name": "MilestoneStatusType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "MortgageInsuranceCompanies",
+            "columns": [
+              {
+                "name": "dimMortgageInsuranceCompaniesSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "MortgageInsuranceCompaniesNKey"
+              },
+              {
+                "name": "MortgageInsuranceCompany"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "PropertiesOnSale",
+            "columns": [
+              {
+                "name": "AppraisedValue"
+              },
+              {
+                "name": "dimPropertiesOnSaleSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "HouseOnSaleState"
+              },
+              {
+                "name": "HouseOnSaleStreet"
+              },
+              {
+                "name": "HouseOnSaleZip"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "PropertiesOnSaleNKey"
+              },
+              {
+                "name": "PropertyOccupancyType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "Source",
+            "columns": [
+              {
+                "name": "dimSourceSKey"
+              },
+              {
+                "name": "Enddate"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "SourceName"
+              },
+              {
+                "name": "SourceNKey"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "Loan Officer",
+        "modelPermission": "readRefresh"
+      },
+      {
+        "name": "Loan Closer",
+        "modelPermission": "readRefresh"
+      },
+      {
+        "name": " Loan Processor",
+        "modelPermission": "readRefresh"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
